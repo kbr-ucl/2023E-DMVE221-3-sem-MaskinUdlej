@@ -50,5 +50,7 @@ dotnet add %app%.Infrastructure/%app%.Infrastructure.csproj package AutoMapper
 dotnet add %app%.Infrastructure/%app%.Infrastructure.csproj package AutoMapper.Extensions.Microsoft.DependencyInjection
 dotnet add %app%.Infrastructure/%app%.Infrastructure.csproj package Microsoft.EntityFrameworkCore
 dotnet add %app%.Infrastructure/%app%.Infrastructure.csproj package Microsoft.EntityFrameworkCore.Relational
+
+dotnet add %app%.Domain.Test/%app%.Domain.Test.csproj package Moq
 pause
 :no

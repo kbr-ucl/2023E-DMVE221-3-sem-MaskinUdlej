@@ -2,16 +2,18 @@
 
 public class Booking
 {
+    public Guid Id { get; protected set; } = Guid.NewGuid();
     public DateTime StartDate { get; protected set; }
     public DateTime EndDate { get; protected set; }
-    public Ressource Ressource { get; protected set; }
+    public List<Ressource> Ressources { get; protected set; }
 
-    public Booking(Ressource ressource, DateTime startDate, DateTime endDate, IEnumerable<Booking> otherBookings)
+    public Booking(List<Ressource> ressources, DateTime startDate, DateTime endDate, List<Booking> otherBookings)
     {
-        Ressource = ressource;
+        Ressources = ressources;
         StartDate = startDate;
         EndDate = endDate;
         ValidateBooking(otherBookings);
+        Ressources.ForEach(ressource => ressource.Bookings.Add(this));
     }
 
 

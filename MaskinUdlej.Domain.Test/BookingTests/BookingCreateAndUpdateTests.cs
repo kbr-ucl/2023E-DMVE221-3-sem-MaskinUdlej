@@ -13,7 +13,7 @@ public class BookingCreateAndUpdateTests
         var endDate = DateTime.Now.AddDays(1);
 
         // Act
-        var booking = new Booking(ressource, startDate, endDate, new List<Booking>());
+        var booking = new Booking(new List<Ressource>(), startDate, endDate, new List<Booking>());
 
         // Assert
         Assert.NotNull(booking);
@@ -29,7 +29,7 @@ public class BookingCreateAndUpdateTests
 
         // Act
         // Assert
-        Assert.Throws<Exception>(() => new Booking(ressource, startDate, endDate, new List<Booking>()));
+        Assert.Throws<Exception>(() => new Booking(new List<Ressource>(), startDate, endDate, new List<Booking>()));
     }
 
     [Theory]
@@ -46,7 +46,7 @@ public class BookingCreateAndUpdateTests
 
 
         // Act
-        var booking = new Booking(ressource, DateTime.Parse(startDate), DateTime.Parse(endDate), otherBookings);
+        var booking = new Booking(new List<Ressource>(), DateTime.Parse(startDate), DateTime.Parse(endDate), otherBookings);
 
         // Assert
         Assert.NotNull(booking);
@@ -66,7 +66,7 @@ public class BookingCreateAndUpdateTests
 
 
         // Act
-        var booking = new Booking(ressource, DateTime.Parse(startDate), DateTime.Parse(endDate), otherBookings);
+        var booking = new Booking(new List<Ressource>(), DateTime.Parse(startDate), DateTime.Parse(endDate), otherBookings);
 
         // Assert
         Assert.NotNull(booking);

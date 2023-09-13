@@ -1,11 +1,21 @@
-﻿namespace MaskinUdlej.Domain.Entities;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace MaskinUdlej.Domain.Entities;
 
 public class Booking
 {
-    public Guid Id { get; protected set; } = Guid.NewGuid();
+    [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public Guid Id { get; protected set; }
     public DateTime StartDate { get; protected set; }
     public DateTime EndDate { get; protected set; }
     public List<Ressource> Ressources { get; protected set; }
+
+    // Do not use !!!!  EF Core only
+    public Booking()
+    {
+    }
 
     public Booking(List<Ressource> ressources, DateTime startDate, DateTime endDate, List<Booking> otherBookings)
     {
